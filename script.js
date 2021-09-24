@@ -13,9 +13,9 @@ class Vogel{
 
   draw(){
     fill(this.c);
-    ellipse(this.x, this.y, this.width, this.height, this.c, this.gravity, this.v, this.lift);
+    ellipse(this.x, this.y, this.width, this.height, this.c);
     
-  
+
   }
 
   update() {
@@ -23,13 +23,13 @@ class Vogel{
     this.y += this.v;
 
 
-    if (this.y >= height){
-      this.y = height;
+    if (this.y <= 0){
+      this.y = 0;
       this.v = 0;
 
     }
 
-    if (this.y >= 0){
+    if (this.y >= height){
       this.y = height;
 
       this.v = 0;
@@ -38,7 +38,7 @@ class Vogel{
   }
 
   omhoog(){
-    this.v += this.lift;
+    this.y -= 50;
   }
 
 }
@@ -47,7 +47,7 @@ var vogel;
 
 function setup() {
   createCanvas(500, 400);
-  vogel = new Vogel(250, 45, 20, 20, "yellow", 1, 0, -10);
+  vogel = new Vogel(250, 100, 20, 20, "yellow", 0.01, 0, 1);
 }
 
 function draw(){
@@ -56,12 +56,12 @@ function draw(){
   vogel.update();
 }
 
-function keypressed(){
+function keyPressed(){
   if (keyCode == UP_ARROW){
 
-    function draw(){
-      vogel.omhoog();
-    }
+    
+    vogel.omhoog();
+    
   }
 }
 
