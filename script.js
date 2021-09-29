@@ -29,14 +29,14 @@ class Vogel{
 
     if (this.y >= height){
       this.y = height;
-
       this.v = 0;
       
     }
   }
 
   omhoog(){
-    this.y -= 50;
+    this.v += this.lift;
+
   }
 
 }
@@ -71,7 +71,7 @@ var buis;
 
 function setup() {
   createCanvas(500, 400);
-  vogel = new Vogel(250, 100, 20, 20, "yellow", 0.02, 0, 1);
+  vogel = new Vogel(250, 100, 20, 20, "yellow", 0.4, 0, -15);
  
   
 }
