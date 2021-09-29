@@ -73,7 +73,7 @@ function setup() {
   createCanvas(500, 400);
   vogel = new Vogel(250, 100, 20, 20, "yellow", 0.02, 0, 1);
  
-  buizen.push(new Buis());
+  
 }
 
 function draw(){ 
@@ -82,6 +82,9 @@ function draw(){
   vogel.update();  
 
   console.log(frameCount);
+  if (frameCount % 200 == 0){
+    buizen.push(new Buis());
+  }
  
   buizen.forEach((b) => {    
     b.update();
