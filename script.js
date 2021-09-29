@@ -36,7 +36,6 @@ class Vogel{
 
   omhoog(){
     this.v += this.lift;
-
   }
 
 }
@@ -47,7 +46,7 @@ class Buis{
     this.top = random(height/2);
     this.bottom = random(height/2);
     this.x = width;
-    this.w = 20;
+    this.w = 40;
     this.speed = 1;
   }
  
@@ -71,7 +70,7 @@ var buis;
 
 function setup() {
   createCanvas(500, 400);
-  vogel = new Vogel(250, 100, 20, 20, "yellow", 0.4, 0, -15);
+  vogel = new Vogel(250, 100, 20, 20, "yellow", 0.3, 0, -10);
  
   
 }
