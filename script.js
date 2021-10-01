@@ -1,6 +1,6 @@
-class Vogel{
+class Vogel {
 
-  constructor(x, y, width, height, c, gravity, v, lift){
+  constructor(x, y, width, height, c, gravity, v, lift) {
     this.x = x;
     this.y = y;
     this.width = width;
@@ -11,7 +11,7 @@ class Vogel{
     this.lift = lift;
   }
 
-  draw(){
+  draw() {
     fill(this.c);
     ellipse(this.x, this.y, this.width, this.height, this.c);
   }
@@ -21,44 +21,63 @@ class Vogel{
     this.y += this.v;
 
 
-    if (this.y <= 0){
+    if (this.y <= 0) {
       this.y = 0;
       this.v = 0;
 
     }
 
-    if (this.y >= height){
+    if (this.y >= height) {
       this.y = height;
       this.v = 0;
-      
+
     }
   }
 
-  omhoog(){
+  omhoog() {
     this.v += this.lift;
   }
 
 }
 
-class Buis{
+class Buis {
 
-  constructor(){
-    this.top = random(height/2);
-    this.bottom = random(height/2);
+  constructor() {
+    this.top = random(height / 2);
+    this.bottom = random(height / 2);
     this.x = width;
     this.w = 40;
     this.speed = 1;
-  }
- 
-  draw(){
-    fill("green");
-    rect(this.x, 0, this.w, this.top);
-    rect(this.x, height-this.bottom, this.w, this.bottom);
+    this.c = "green";
   }
 
-  update(){
+  draw() {
+    fill(this.c);
+    rect(this.x, 0, this.w, this.top);
+    rect(this.x, height - this.bottom, this.w, this.bottom);
+  }
+
+  update() {
     this.x -= this.speed;
-  }    
+  }
+
+  isColliding() {
+
+    if (vogel.x > this.x && vogel.x < this.x + this.w) {
+      this.c = "red";
+     
+    }
+
+
+    else {
+      this.c = "green";
+      } 
+
+    
+
+
+  }
+
 }
 
 
@@ -71,30 +90,35 @@ var buis;
 function setup() {
   createCanvas(500, 400);
   vogel = new Vogel(250, 100, 20, 20, "yellow", 0.3, 0, -10);
- 
-  
+
+
 }
 
-function draw(){ 
+function draw() {
   background(205, 240, 255);
   vogel.draw();
-  vogel.update();  
+  vogel.update();
 
   console.log(frameCount);
-  if (frameCount % 200 == 0){
+  if (frameCount % 200 == 0) {
     buizen.push(new Buis());
+
+    if (buizen.length > 8) {
+      buizen.splice(0, 2);
+    }
   }
- 
-  buizen.forEach((b) => {    
+
+  buizen.forEach((b) => {
     b.update();
     b.draw();
+    b.isColliding();
   });
 }
 
-function keyPressed(){
-  if (keyCode == UP_ARROW){
+function keyPressed() {
+  if (keyCode == UP_ARROW) {
     vogel.omhoog();
-    
+
   }
 }
 
