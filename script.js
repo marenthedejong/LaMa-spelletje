@@ -62,22 +62,17 @@ class Buis {
   }
 
   isColliding() {
-
     if (vogel.x > this.x && vogel.x < this.x + this.w) {
-      this.c = "red";
-     
+      this.c = "yellow";
+      if (vogel.y > this.y && vogel.y < this.y + this.bottom) {
+        this.c = "red";
+      }
     }
-
 
     else {
       this.c = "green";
-      } 
-
-    
-
-
+    }
   }
-
 }
 
 
