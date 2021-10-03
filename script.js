@@ -63,8 +63,7 @@ class Buis {
 
   isColliding() {
     if (vogel.x > this.x && vogel.x < this.x + this.w) {
-      this.c = "yellow";
-      if (vogel.y > this.y && vogel.y < this.y + this.bottom) {
+      if (vogel.y < this.top || vogel.y > height - this.bottom) {
         this.c = "red";
       }
     }
