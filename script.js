@@ -80,9 +80,18 @@ var vogel;
 var buizen = [];
 var buis;
 
+var achtergrondmuziek;
+
+function preload(){ 
+  //soundFormats('mp3', 'ogg');
+  achtergrondmuziek = loadSound("Muziek/achtergrondmuziek.mp3"); 
+} 
+
 
 function setup() {
   createCanvas(500, 400);
+  achtergrondmuziek.setVolume(1);
+  achtergrondmuziek.play(); 
   vogel = new Vogel(250, 100, 20, 20, "yellow", 0.3, 0, -10);
 
 
@@ -93,7 +102,6 @@ function draw() {
   vogel.draw();
   vogel.update();
 
-  console.log(frameCount);
   if (frameCount % 200 == 0) {
     buizen.push(new Buis());
 
