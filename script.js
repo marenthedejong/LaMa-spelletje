@@ -132,11 +132,14 @@ var x = 0;
 
 function menu() {
   background(img);
+  textFont('Georgia');
+  textSize(15);
+
   text("Welkom bij Crappy Bird!", 170, 45);
-  text("MENU", 200, 70);
-  text("1. Start Crappy Bird", 200, 90);
-  text("2. Game over", 200, 110);
-  text("3. Terug naar menu", 200, 130);
+  text("Menu", 190, 70);
+  text("1. Start Crappy Bird", 190, 90);
+  text("2. Game over", 190, 110);
+  text("3. Terug naar menu", 190, 130);
 
 }
 
