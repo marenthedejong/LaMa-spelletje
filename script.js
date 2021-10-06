@@ -74,8 +74,6 @@ class Buis {
   }
 }
 
-
-
 var vogel;
 var buizen = [];
 var buis;
@@ -103,20 +101,20 @@ function draw() {
   text("gameState" + gameState, 25, 25);
 
   if (gameState == 0) {
+    fill(0, 0, 0)
     menu();
   }
 
   if (gameState == 1) {
-    background("purple");
-    text("GAME RUNNING", 25, 45);
+    text("GAME RUNNING", 250, 200);
     game();
   }
 
   if (gameState == 2) {
-    background("white");
-    text("GAME OVER", 25, 45);
-    fill(0,0,0);
-    x = 0;
+    background("red");
+    text("GAME OVER, jammer joh!", 200, 200);
+    fill(255, 255, 255);
+    x = 0;33
   }
 }
 
@@ -124,12 +122,11 @@ var x = 0;
 
 function menu() {
   background("#FFC0CB");
- 
-  text("Welkom bij Crappy Bird!", 25, 25);
-  text("MENU", 25, 45);
-  text("1. Start Crappy Bird", 25, 65);
-  text("2. Game over", 25, 85);
-  text("3. Terug naar menu", 25, 105);
+  text("Welkom bij Crappy Bird!", 170, 45);
+  text("MENU", 200, 70);
+  text("1. Start Crappy Bird", 200, 90);
+  text("2. Game over", 200, 110);
+  text("3. Terug naar menu", 200, 130);
 
 }
 
