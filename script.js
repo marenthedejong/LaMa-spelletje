@@ -81,14 +81,21 @@ var buis;
 var achtergrondmuziek;
 
 var gameState = 0;
+var sprite
+var img
 
 function preload(){ 
   //soundFormats('mp3', 'ogg');
-  achtergrondmuziek = loadSound("Muziek/achtergrondmuziek.mp3"); 
+  achtergrondmuziek = loadSound("Muziek/achtergrondmuziek.mp3");
+  img = loadImage("img/flap.png");
 } 
 
 function setup() {
   createCanvas(500, 400);
+
+  //sprite = createSprite(500,400);
+  //sprite.addImage(img);
+
   achtergrondmuziek.setVolume(1);
   achtergrondmuziek.play(); 
   vogel = new Vogel(250, 100, 20, 20, "yellow", 0.3, 0, -10);
@@ -97,6 +104,8 @@ function setup() {
 }
 
 function draw() {
+
+  //drawSprite(sprite);
 
   text("gameState" + gameState, 25, 25);
 
@@ -111,9 +120,10 @@ function draw() {
   }
 
   if (gameState == 2) {
-    background("red");
-    text("GAME OVER, jammer joh!", 200, 200);
-    fill(255, 255, 255);
+    background(img);
+    text("GAME OVER, jammer joh!", 170, 150);
+    text("Druk op 3 om naar het startmenu terug te keren!", 130, 200);
+    fill(0, 0, 0);
     x = 0;33
   }
 }
@@ -121,7 +131,7 @@ function draw() {
 var x = 0;
 
 function menu() {
-  background("#FFC0CB");
+  background(img);
   text("Welkom bij Crappy Bird!", 170, 45);
   text("MENU", 200, 70);
   text("1. Start Crappy Bird", 200, 90);
@@ -131,7 +141,7 @@ function menu() {
 }
 
 function game() {
-  background(205, 240, 255);
+  background(img);
   vogel.draw();
   vogel.update();
 
