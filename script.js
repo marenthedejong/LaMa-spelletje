@@ -21,13 +21,14 @@ class Vogel {
     this.y += this.v;
 
 
-    if (this.y <= 0) {
-      this.y = 0;
+    if (this.y + this.height <= 0) {
+      this.y = 0 + this.height;
       this.v = 0;
 
     }
 
-    if (this.y - this.height >= height) {
+
+    if (this.y + this.height >= height) {
       this.y = height - this.height;
       this.v = 0;
 
