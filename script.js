@@ -1,19 +1,19 @@
 class Vogel {
 
-  constructor(x, y, width, height, c, gravity, v, lift) {
+  constructor(x, y, width, height, img1, gravity, v, lift) {
+    
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
-    this.c = c;
+    this.img1 = crappybird;
     this.gravity = gravity;
     this.v = v;
     this.lift = lift;
   }
 
   draw() {
-    fill(this.c);
-    ellipse(this.x, this.y, this.width, this.height, this.c);
+    image(this.img1, this.x, this.y, this.width, this.height);
   }
 
   update() {
@@ -83,29 +83,27 @@ var achtergrondmuziek;
 var gameState = 0;
 var sprite
 var img
+var crappybird
 
 function preload(){ 
   //soundFormats('mp3', 'ogg');
   achtergrondmuziek = loadSound("Muziek/achtergrondmuziek.mp3");
   img = loadImage("img/flap.png");
+  crappybird = loadImage("img/crappybird.png");
 } 
 
 function setup() {
   createCanvas(500, 400);
 
-  //sprite = createSprite(500,400);
-  //sprite.addImage(img);
 
   achtergrondmuziek.setVolume(1);
   achtergrondmuziek.play(); 
-  vogel = new Vogel(250, 100, 20, 20, "yellow", 0.3, 0, -10);
+  vogel = new Vogel(250, 100, 20, 20, "yellow", 0.3, 0, -10, crappybird);
 
 
 }
 
 function draw() {
-
-  //drawSprite(sprite);
 
   text("gameState" + gameState, 25, 25);
 
@@ -124,7 +122,7 @@ function draw() {
     text("GAME OVER, jammer joh!", 170, 150);
     text("Druk op 3 om naar het startmenu terug te keren!", 130, 200);
     fill(0, 0, 0);
-    x = 0;33
+    x = 0;
   }
 }
 
