@@ -27,8 +27,8 @@ class Vogel {
 
     }
 
-    if (this.y >= height) {
-      this.y = height;
+    if (this.y - this.height >= height) {
+      this.y = height - this.height;
       this.v = 0;
 
     }
@@ -98,7 +98,7 @@ function setup() {
 
   achtergrondmuziek.setVolume(1);
   achtergrondmuziek.play(); 
-  vogel = new Vogel(250, 100, 30, 30, "yellow", 0.3, 0, -10, crappybird);
+  vogel = new Vogel(250, 100, 30, 30, crappybird, 0.3, 0, -10);
 
 
 }
