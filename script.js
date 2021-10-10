@@ -137,7 +137,10 @@ function draw() {
   textFont('Georgia');
   text(score, 250, 380);
 
-
+  if (score == 10){
+   fill(0, 0, 0)
+   eindscherm();
+ }
 
 }
 
