@@ -101,7 +101,6 @@ function setup() {
   achtergrondmuziek.play(); 
   vogel = new Vogel(250, 100, 30, 30, crappybird, 0.3, 0, -10);
 
-
 }
 
 function draw() {
@@ -129,16 +128,28 @@ function draw() {
 
   var score = 0;
 
-    if (vogel.x > this.x && vogel.x < this.x + this.w){
-  score = score+1;
-  } 
+    if (vogel.x > this.x && vogel.x < this.x + this.w) {
+        score = score+1;
+    } 
 
   fill(0);
   textSize(30);
   textFont('Georgia');
   text(score, 250, 380);
 
+
+
 }
+
+function eindscherm() {
+  background(img);
+  textFont('Georgia');
+  textSize(15);
+
+  text('Je hebt gewonnen!', 190, 150);
+  text('Klik op 3 om terug te gaan naar het startmenu!', 100, 200)
+}
+
 
 var x = 0;
 
