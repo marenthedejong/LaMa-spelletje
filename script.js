@@ -125,6 +125,19 @@ function draw() {
     fill(0, 0, 0);
     x = 0;
   }
+
+
+  var score = 0;
+
+    if (vogel.x > this.x && vogel.x < this.x + this.w){
+  score = score+1;
+  } 
+
+  fill(0);
+  textSize(30);
+  textFont('Georgia');
+  text(score, 250, 380);
+
 }
 
 var x = 0;
@@ -184,3 +197,4 @@ function keyPressed(){
   }
 
 }
+
