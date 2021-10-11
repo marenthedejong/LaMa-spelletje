@@ -117,11 +117,15 @@ function draw() {
 
   if (gameState == 2) {
     background(img);
+    fill(0, 0, 0);
     text("GAME OVER, jammer joh!", 170, 150);
     text("Druk op 3 om naar het startmenu terug te keren!", 130, 200);
-    fill(0, 0, 0);
-    x = 0;
+    textSize(15);
+    textFont('Georgia');
+   
   }
+
+
 }
 
 
@@ -135,8 +139,8 @@ function scoretonen() {
 
   if (score == 10) {
     fill(0, 0, 0);
-    gameState = 2;
-    //eindscherm();
+    gameState = 3;
+    
   }
 }
 
