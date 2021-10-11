@@ -1,7 +1,7 @@
 class Vogel {
 
   constructor(x, y, width, height, img1, gravity, v, lift) {
-    
+
     this.x = x;
     this.y = y;
     this.width = width;
@@ -23,7 +23,7 @@ class Vogel {
 
     if (this.y + this.height <= 0) {
       this.y = 0 + this.height;
-      this.v = 0;
+      this.v = 0; 
 
     }
 
@@ -31,11 +31,12 @@ class Vogel {
     if (this.y + this.height >= height) {
       this.y = height - this.height;
       this.v = 0;
-
+     
     }
   }
 
   omhoog() {
+    
     this.v += this.lift;
   }
 
@@ -65,13 +66,10 @@ class Buis {
   isColliding() {
     if (vogel.x > this.x && vogel.x < this.x + this.w) {
       if (vogel.y < this.top || vogel.y > height - this.bottom) {
-        this.c = "red";
+        //this.c = "red";
+        gameState = 2;
       }
-    }
-
-    else {
-      this.c = "green";
-    }
+    }   
   }
 }
 
@@ -82,23 +80,23 @@ var buis;
 var achtergrondmuziek;
 
 var gameState = 0;
-var sprite
-var img
-var crappybird
+var sprite;
+var img;
+var crappybird;
 
-function preload(){ 
+function preload() {
   //soundFormats('mp3', 'ogg');
   achtergrondmuziek = loadSound("Muziek/achtergrondmuziek.mp3");
   img = loadImage("img/flap.png");
   crappybird = loadImage("img/crappybird.png");
-} 
+}
 
 function setup() {
   createCanvas(500, 400);
 
 
   achtergrondmuziek.setVolume(1);
-  achtergrondmuziek.play(); 
+  achtergrondmuziek.play();
   vogel = new Vogel(250, 100, 30, 30, crappybird, 0.3, 0, -10);
 
 }
@@ -112,9 +110,9 @@ function draw() {
     menu();
   }
 
-  if (gameState == 1) {
-    text("GAME RUNNING", 250, 200);
+  if (gameState == 1) {    
     game();
+    
   }
 
   if (gameState == 2) {
@@ -124,25 +122,26 @@ function draw() {
     fill(0, 0, 0);
     x = 0;
   }
+}
 
 
-  var score = 0;
+var score = 0;
 
-    if (vogel.x > this.x && vogel.x < this.x + this.w) {
-        score = score+1;
-    } 
-
+function scoretonen() {
   fill(0);
   textSize(30);
   textFont('Georgia');
   text(score, 250, 380);
 
-  if (score == 10){
-   fill(0, 0, 0)
-   eindscherm();
- }
-
+  if (score == 10) {
+    fill(0, 0, 0);
+    gameState = 2;
+    //eindscherm();
+  }
 }
+
+
+
 
 function eindscherm() {
   background(img);
@@ -150,7 +149,7 @@ function eindscherm() {
   textSize(15);
 
   text('Je hebt gewonnen!', 190, 150);
-  text('Klik op 3 om terug te gaan naar het startmenu!', 100, 200)
+  text('Klik op 3 om terug te gaan naar het startmenu!', 100, 200);
 }
 
 
@@ -173,6 +172,7 @@ function game() {
   background(img);
   vogel.draw();
   vogel.update();
+  scoretonen();
 
   if (frameCount % 200 == 0) {
     buizen.push(new Buis());
@@ -182,14 +182,20 @@ function game() {
     }
   }
 
+  if (buizen.length > 1 && frameCount % 200 == 50) {
+    score++;
+  }
+
   buizen.forEach((b) => {
     b.update();
     b.draw();
     b.isColliding();
   });
+
+
 }
 
-function keyPressed(){
+function keyPressed() {
 
   if (keyCode == UP_ARROW) {
     vogel.omhoog();
