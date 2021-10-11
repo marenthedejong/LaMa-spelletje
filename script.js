@@ -119,16 +119,15 @@ function draw() {
     background(img);
     fill(0, 0, 0);
     text("GAME OVER, jammer joh!", 170, 150);
-    text("Druk op 3 om naar het startmenu terug te keren!", 130, 200);
+    text("Druk op 2 om naar het startmenu terug te keren!", 130, 200);
     textSize(15);
     textFont('Georgia');
+  }
 
   if (gameState == 3) { 
     fill(0, 0, 0)
     eindscherm();
   }
-
-
 }
 
 
@@ -140,14 +139,12 @@ function scoretonen() {
   textFont('Georgia');
   text(score, 250, 380);
 
-  if (score == 10) {
+  if (score == 5) {
     fill(0, 0, 0);
     gameState = 3;
     
   }
 }
-
-
 
 
 function eindscherm() {
@@ -156,7 +153,7 @@ function eindscherm() {
   textSize(15);
 
   text('Je hebt gewonnen!', 190, 150);
-  text('Klik op 3 om terug te gaan naar het startmenu!', 100, 200);
+  text('Klik op 2 om terug te gaan naar het startmenu!', 100, 200);
 }
 
 
@@ -170,10 +167,9 @@ function menu() {
   text("Welkom bij Crappy Bird!", 170, 45);
   text("Menu", 190, 70);
   text("1. Start Crappy Bird", 190, 90);
-  text("2. Game over", 190, 110);
-  text("3. Terug naar menu", 190, 130);
-
+  text("2. Terug naar menu", 190, 130);
 }
+
 
 function game() {
   background(img);
@@ -215,15 +211,10 @@ function keyPressed() {
   }
 
   if (keyCode == 50) {
-    gameState = 2;
-  }
-
-  if (keyCode == 51) {
     gameState = 0;
   }
 
   if (keyCode == 52) {
     gameState = 3;
   }
-
 }
