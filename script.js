@@ -122,7 +122,10 @@ function draw() {
     text("Druk op 3 om naar het startmenu terug te keren!", 130, 200);
     textSize(15);
     textFont('Georgia');
-   
+
+  if (gameState == 3) { 
+    fill(0, 0, 0)
+    eindscherm();
   }
 
 
@@ -203,7 +206,6 @@ function keyPressed() {
 
   if (keyCode == UP_ARROW) {
     vogel.omhoog();
-
   }
 
   console.log(keyCode);
@@ -220,5 +222,8 @@ function keyPressed() {
     gameState = 0;
   }
 
-}
+  if (keyCode == 52) {
+    gameState = 3;
+  }
 
+}
