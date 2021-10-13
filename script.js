@@ -78,6 +78,7 @@ var buizen = [];
 var buis;
 
 var achtergrondmuziek;
+var gameovermuziek;
 
 var gameState = 0;
 var sprite;
@@ -89,6 +90,8 @@ function preload() {
   achtergrondmuziek = loadSound("Muziek/achtergrondmuziek.mp3");
   img = loadImage("img/flap.png");
   crappybird = loadImage("img/crappybird.png");
+
+  gameovermuziek = loadSound("Muziek/gameovermuziek.mp3");
 }
 
 function setup() {
@@ -108,10 +111,12 @@ function draw() {
   if (gameState == 0) {
     fill(0, 0, 0)
     menu();
+    gameovermuziek.stop();
   }
 
   if (gameState == 1) {
     game();
+    gameovermuziek.stop();
   }
 
   if (gameState == 2) {
@@ -121,6 +126,8 @@ function draw() {
     text("Druk op 2 om naar het startmenu terug te keren!", 105, 200);
     textSize(15);
     textFont('Georgia');
+    achtergrondmuziek.stop();
+    gameovermuziek.play();
   }
 
   if (gameState == 3) {
@@ -215,6 +222,8 @@ function keyPressed() {
 
   if (keyCode == 50) {
     gameState = 0;
+    achtergrondmuziek.stop();
+    gameovermuziek.play();
   }
 
   if (keyCode == 52) {
