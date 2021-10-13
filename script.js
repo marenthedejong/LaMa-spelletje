@@ -210,6 +210,7 @@ function keyPressed() {
     vogel = new Vogel(250, 100, 30, 30, crappybird, 0.3, 0, -10);
     buizen = [];
     score = 0;
+    achtergrondmuziek.play();
   }
 
   if (keyCode == 50) {
