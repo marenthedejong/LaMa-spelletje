@@ -23,7 +23,7 @@ class Vogel {
 
     if (this.y + this.height <= 0) {
       this.y = 0 + this.height;
-      this.v = 0; 
+      this.v = 0;
 
     }
 
@@ -31,12 +31,12 @@ class Vogel {
     if (this.y + this.height >= height) {
       this.y = height - this.height;
       this.v = 0;
-     
+
     }
   }
 
   omhoog() {
-    
+
     this.v += this.lift;
   }
 
@@ -69,7 +69,7 @@ class Buis {
         //this.c = "red";
         gameState = 2;
       }
-    }   
+    }
   }
 }
 
@@ -110,21 +110,20 @@ function draw() {
     menu();
   }
 
-  if (gameState == 1) {    
+  if (gameState == 1) {
     game();
-    
   }
 
   if (gameState == 2) {
     background(img);
     fill(0, 0, 0);
     text("GAME OVER, jammer joh!", 170, 150);
-    text("Druk op 2 om naar het startmenu terug te keren!", 130, 200);
+    text("Druk op 2 om naar het startmenu terug te keren!", 105, 200);
     textSize(15);
     textFont('Georgia');
   }
 
-  if (gameState == 3) { 
+  if (gameState == 3) {
     fill(0, 0, 0)
     eindscherm();
   }
@@ -142,7 +141,7 @@ function scoretonen() {
   if (score == 5) {
     fill(0, 0, 0);
     gameState = 3;
-    
+
   }
 }
 
@@ -154,6 +153,7 @@ function eindscherm() {
 
   text('Je hebt gewonnen!', 190, 150);
   text('Klik op 2 om terug te gaan naar het startmenu!', 100, 200);
+
 }
 
 
@@ -195,7 +195,6 @@ function game() {
     b.isColliding();
   });
 
-
 }
 
 function keyPressed() {
@@ -208,6 +207,9 @@ function keyPressed() {
 
   if (keyCode == 49) {
     gameState = 1;
+    vogel = new Vogel(250, 100, 30, 30, crappybird, 0.3, 0, -10);
+    buizen = [];
+    score = 0;
   }
 
   if (keyCode == 50) {
@@ -217,4 +219,5 @@ function keyPressed() {
   if (keyCode == 52) {
     gameState = 3;
   }
+
 }
