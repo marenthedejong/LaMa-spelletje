@@ -68,6 +68,8 @@ class Buis {
       if (vogel.y < this.top || vogel.y > height - this.bottom) {
         //this.c = "red";
         gameState = 2;
+        achtergrondmuziek.stop();
+        gameovermuziek.play();
       }
     }
   }
@@ -90,7 +92,6 @@ function preload() {
   achtergrondmuziek = loadSound("Muziek/achtergrondmuziek.mp3");
   img = loadImage("img/flap.png");
   crappybird = loadImage("img/crappybird.png");
-
   gameovermuziek = loadSound("Muziek/gameovermuziek.mp3");
 }
 
@@ -126,8 +127,7 @@ function draw() {
     text("Druk op 2 om naar het startmenu terug te keren!", 105, 200);
     textSize(15);
     textFont('Georgia');
-    achtergrondmuziek.stop();
-    gameovermuziek.play();
+   
   }
 
   if (gameState == 3) {
