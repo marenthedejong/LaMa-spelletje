@@ -70,8 +70,8 @@ class Buis {
       if (vogel.y < this.top || vogel.y > height - this.bottom) {
         //this.c = "red";
         gameState = 2;
-        achtergrondmuziek.stop();
-        gameovermuziek.play();
+        //achtergrondmuziek.stop();
+        //gameovermuziek.play();
       }
     }
   }
@@ -99,8 +99,6 @@ function preload() {
 
 function setup() {
   createCanvas(500, 400);
-
-
   achtergrondmuziek.setVolume(1);
   achtergrondmuziek.play();
   vogel = new Vogel(250, 100, 30, 30, crappybird, 0.3, 0, -10);
