@@ -22,15 +22,17 @@ class Vogel {
 
 
     if (this.y + this.height <= 0) {
-      this.y = 0 + this.height;
-      this.v = 0;
+      gameState = 2;
+      //this.y = 0 + this.height;
+      //this.v = 0;
 
     }
 
 
     if (this.y + this.height >= height) {
-      this.y = height - this.height;
-      this.v = 0;
+      gameState = 2;
+      //this.y = height - this.height;
+      //this.v = 0;
 
     }
   }
@@ -124,7 +126,8 @@ function draw() {
     background(img);
     fill(0, 0, 0);
     text("GAME OVER, jammer joh!", 170, 150);
-    text("Druk op 2 om naar het startmenu terug te keren!", 105, 200);
+    text('Klik op 1 om opnieuw te spelen!', 155, 200);
+    text("Druk op 2 om naar het startmenu terug te keren!", 105, 250);
     textSize(15);
     textFont('Georgia');
   }
@@ -158,8 +161,8 @@ function eindscherm() {
   textSize(15);
 
   text('Je hebt gewonnen!', 190, 150);
-  text('Klik op 1 om opnieuw te spelen!', 100, 200);
-  text('Klik op 2 om terug te gaan naar het startmenu!', 100, 200);
+  text('Klik op 1 om opnieuw te spelen!', 155, 200);
+  text('Klik op 2 om terug te gaan naar het startmenu!', 105, 250);
 
 }
 
