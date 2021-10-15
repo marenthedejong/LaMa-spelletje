@@ -23,16 +23,12 @@ class Vogel {
 
     if (this.y + this.height <= 0) {
       gameState = 2;
-      //this.y = 0 + this.height;
-      //this.v = 0;
 
     }
 
 
     if (this.y + this.height >= height) {
       gameState = 2;
-      //this.y = height - this.height;
-      //this.v = 0;
 
     }
   }
@@ -68,10 +64,7 @@ class Buis {
   isColliding() {
     if (vogel.x > this.x && vogel.x < this.x + this.w) {
       if (vogel.y < this.top || vogel.y > height - this.bottom) {
-        //this.c = "red";
         gameState = 2;
-        //achtergrondmuziek.stop();
-        //gameovermuziek.play();
       }
     }
   }
@@ -82,7 +75,6 @@ var buizen = [];
 var buis;
 
 var achtergrondmuziek;
-var gameovermuziek;
 
 var gameState = 0;
 var sprite;
@@ -94,7 +86,6 @@ function preload() {
   achtergrondmuziek = loadSound("Muziek/achtergrondmuziek.mp3");
   img = loadImage("img/flap.png");
   crappybird = loadImage("img/crappybird.png");
-  gameovermuziek = loadSound("Muziek/gameovermuziek.mp3");
 }
 
 function muziek(){
@@ -105,7 +96,6 @@ function muziek(){
     achtergrondmuziek.rate(1);
   }
 }
-
 
 function setup() {
   createCanvas(500, 400);
@@ -144,7 +134,6 @@ function draw() {
   }
 }
 
-
 var score = 0;
 
 function scoretonen() {
@@ -156,6 +145,7 @@ function scoretonen() {
   if (score == 5) {
     fill(0, 0, 0);
     gameState = 3;
+
 
   }
 }
