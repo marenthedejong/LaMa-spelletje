@@ -90,19 +90,26 @@ var img;
 var crappybird;
 
 function preload() {
-  //soundFormats('mp3', 'ogg');
+  soundFormats('mp3', 'ogg');
   achtergrondmuziek = loadSound("Muziek/achtergrondmuziek.mp3");
   img = loadImage("img/flap.png");
   crappybird = loadImage("img/crappybird.png");
   gameovermuziek = loadSound("Muziek/gameovermuziek.mp3");
 }
 
+function muziek(){
+
+  if (!achtergrondmuziek.isPlaying()) {
+    achtergrondmuziek.play();
+    achtergrondmuziek.setVolume(1);
+    achtergrondmuziek.rate(1);
+  }
+}
+
+
 function setup() {
   createCanvas(500, 400);
-  achtergrondmuziek.setVolume(1);
-  achtergrondmuziek.play();
   vogel = new Vogel(250, 100, 30, 30, crappybird, 0.3, 0, -10);
-
 }
 
 function draw() {
@@ -117,7 +124,7 @@ function draw() {
 
   if (gameState == 1) {
     game();
-
+    muziek();
   }
 
   if (gameState == 2) {
@@ -128,6 +135,7 @@ function draw() {
     text("Druk op 2 om naar het startmenu terug te keren!", 105, 250);
     textSize(15);
     textFont('Georgia');
+    achtergrondmuziek.stop();
   }
 
   if (gameState == 3) {
@@ -184,6 +192,8 @@ function game() {
   vogel.draw();
   vogel.update();
   scoretonen();
+
+  
 
   if (frameCount % 200 == 0) {
     buizen.push(new Buis());
